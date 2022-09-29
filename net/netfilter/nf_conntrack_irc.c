@@ -278,7 +278,7 @@ static int help(struct sk_buff *skb, unsigned int protoff,
 	data = ib_ptr;
 	data_limit = ib_ptr + skb->len - dataoff;
 
-	/* If packet is coming from IRC server
+    /* If packet is coming from IRC server
 	 * parse the packet for different type of
 	 * messages (MOTD,NICK etc) and process
 	 * accordingly
@@ -303,7 +303,6 @@ static int help(struct sk_buff *skb, unsigned int protoff,
 			ret = NF_ACCEPT;
 			goto out;
 		}
-
 		/* strlen("NICK :xxxxxx")
 		 * 6+strlen("xxxxxx")=1 (minimum length of nickname)
 		 * Parsing the server reply to get nickname
@@ -345,9 +344,7 @@ static int help(struct sk_buff *skb, unsigned int protoff,
 			ret = NF_ACCEPT;
 			goto out;
 		}
-	}
-
-	else{
+	} else {
 		/*Parsing NICK command from client to create an entry
 		 * strlen("NICK xxxxxx")
 		 * 5+strlen("xxxxxx")=1 (minimum length of nickname)
